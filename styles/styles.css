@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background-image: -webkit-gradient(linear, left top, right top, from(#EEF676), color-stop(#F6BE76), to(#F67E76));
+  background-image: linear-gradient(to right, #EEF676, #F6BE76, #F67E76);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#to-do-list {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  width: 400px;
+  height: 80vh;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  font-size: 1.1rem;
+  padding: 20px;
+}
+
+#to-do-list h1 {
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #2f2f2f;
+}
+
+#to-do-list input {
+  padding: 15px 20px;
+  position: relative;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+#to-do-list input:focus {
+  outline: none;
+}
+
+#to-do-list button {
+  position: absolute;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#to-do-list #add {
+  top: 110px;
+  right: 22px;
+}
+
+#to-do-list #add:focus {
+  outline: none;
+}
+
+#to-do-list #reset {
+  top: 130px;
+  right: 22px;
+}
+
+#to-do-list #reset:focus {
+  outline: none;
+}
+
+#to-do-list #list {
+  list-style-type: none;
+  width: 100%;
+}
+
+#to-do-list #list li {
+  width: 100%;
+  padding: 10px 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+#to-do-list .completed {
+  text-decoration: overline;
+}
+
+#to-do-list .deleted {
+  color: red;
+  border: 2px solid #2f2f2f;
+  padding: 5px;
+}
+
+#to-do-list .delete-hide {
+  display: none;
+}
+
+#to-do-list .no {
+  width: 10px;
+  height: 10px;
+  background-color: bisque;
+}
+/*# sourceMappingURL=styles.css.map */
