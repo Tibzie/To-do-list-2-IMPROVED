@@ -20,6 +20,18 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-weight: 600;
+  color: #e3e3e3;
+}
+
+#list-cover {
+  background: url("../f.jpg");
+  background-position: calc(100% + 600px) calc(100% + 380px);
+  position: relative;
+  width: 400px;
+  height: 80vh;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 #to-do-list {
@@ -27,12 +39,13 @@ body {
   font-weight: 300;
   width: 400px;
   height: 80vh;
-  background-color: rgba(255, 255, 255, 0.2);
-  -webkit-backdrop-filter: blur(15px);
-          backdrop-filter: blur(15px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.3);
-  font-size: 1.1rem;
   padding: 20px;
 }
 
@@ -46,7 +59,7 @@ body {
 }
 
 #to-do-list input {
-  padding: 15px 20px;
+  padding: 15px 35px 15px 15px;
   position: relative;
   width: 100%;
   top: 0;
@@ -54,9 +67,12 @@ body {
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 10px;
   margin-bottom: 20px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
+  background: rgba(255, 255, 255, 0.75);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
 
 #to-do-list input:focus {
@@ -69,11 +85,17 @@ body {
   border: none;
   font-size: 1rem;
   cursor: pointer;
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+}
+
+#to-do-list button:hover {
+  color: rgba(0, 0, 0, 0.6);
 }
 
 #to-do-list #add {
-  top: 110px;
-  right: 22px;
+  top: 105px;
+  right: 28px;
 }
 
 #to-do-list #add:focus {
@@ -81,8 +103,8 @@ body {
 }
 
 #to-do-list #reset {
-  top: 130px;
-  right: 22px;
+  top: 126px;
+  right: 28px;
 }
 
 #to-do-list #reset:focus {
@@ -95,24 +117,127 @@ body {
 }
 
 #to-do-list #list li {
-  width: 100%;
   padding: 10px 15px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 10px;
   margin-bottom: 10px;
-  overflow: hidden;
+  font-weight: 0.2rem;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 500;
+  font-size: .9rem;
+  -webkit-transition: 200ms ease-in;
+  transition: 200ms ease-in;
+  -webkit-animation: slide 300ms forwards ease-in-out;
+          animation: slide 300ms forwards ease-in-out;
 }
 
-#to-do-list .completed {
-  text-decoration: overline;
+#to-do-list #list li .icon:before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
 }
 
-#to-do-list .deleted {
-  color: red;
-  border: 2px solid #2f2f2f;
-  padding: 5px;
+#to-do-list #list li .cross {
+  padding: 10px 0px;
+  position: absolute;
+  top: 0px;
+  right: 7px;
+  font-size: .9rem;
+  color: #e3e3e3;
+}
+
+#to-do-list #list li .cross:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f2ed";
+}
+
+#to-do-list #list li .cross:hover {
+  color: #F67E76;
+}
+
+#to-do-list #list .slide-out {
+  -webkit-animation: slide-out 300ms forwards ease-out;
+          animation: slide-out 300ms forwards ease-out;
+}
+
+#to-do-list #task-count {
+  padding: 0px 15px 0px 15px;
+  color: #e3e3e3;
+  font-weight: 400;
+}
+
+#to-do-list #line-container {
+  width: 100%;
+}
+
+#to-do-list #line-container hr {
+  border: none;
+  border-top: 1px solid rgba(227, 227, 227, 0.6);
+  width: 30%;
+  margin: 15px auto 20px;
+}
+
+@-webkit-keyframes slide {
+  0% {
+    opacity: 0;
+    left: -15%;
+  }
+  75% {
+    opacity: 0.2;
+    left: 5%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+    left: -15%;
+  }
+  75% {
+    opacity: 0.2;
+    left: 5%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+@-webkit-keyframes slide-out {
+  0% {
+    opacity: 1;
+    left: 0;
+  }
+  100% {
+    left: 25%;
+    opacity: 0;
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    opacity: 1;
+    left: 0;
+  }
+  100% {
+    left: 25%;
+    opacity: 0;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

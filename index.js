@@ -23,8 +23,8 @@ function addingTask() {
     list.appendChild(task);
     // creating close button and add it to the li
     const removeTask = document.createElement("button");
-    removeTask .textContent = "X";
-    removeTask .classList.add("deleted");
+    // // removeTask.textContent = "X";
+    removeTask.classList.add("icon", "cross");
     task.appendChild(removeTask);
     // adding task to array when this function is triggered
     taskArray.push(task); 
@@ -39,7 +39,16 @@ function removingTask(e, index) {
     const todo = item.parentElement;
     if(item.tagName === "BUTTON") {
         if(todo.tagName === "LI") {
-            todo.remove();
+            // adding keyframe class
+            todo.classList.add("slide-out");
+            // transition when element disappears
+            todo.addEventListener("transitionend", function() {
+                setTimeout(() => {
+                    // remove element
+                    todo.remove();
+                }, 300);
+            });
+            // remove element from arraylist
             taskArray.splice(index, 1);
         }
     }
@@ -52,7 +61,7 @@ function showTask() {
         taskCount.innerHTML = `${taskArray.length} task left to do.`;
     }
     // starts showing the numbers
-    if (taskArray.length == 1) {
+    if (taskArray.length == 1){
         taskCount.innerHTML = `${taskArray.length} task left to do.`;
         
     } else if (taskArray.length > 1) {
