@@ -115,14 +115,4 @@ body {
   border: 2px solid #2f2f2f;
   padding: 5px;
 }
-
-#to-do-list .delete-hide {
-  display: none;
-}
-
-#to-do-list .no {
-  width: 10px;
-  height: 10px;
-  background-color: bisque;
-}
 /*# sourceMappingURL=styles.css.map */
