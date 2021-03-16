@@ -16,16 +16,16 @@ reset.addEventListener("click", resetInput);
 
 showTask();
 
-function addingTask(task, cross) {
+function addingTask() {
     // creating li and add it to the list
-    task = document.createElement("li");
+    const task = document.createElement("li");
     task.innerHTML = input.value;
     list.appendChild(task);
     // creating close button and add it to the li
-    cross = document.createElement("button");
-    cross.textContent = "X";
-    cross.classList.add("deleted");
-    task.appendChild(cross);
+    const removeTask = document.createElement("button");
+    removeTask .textContent = "X";
+    removeTask .classList.add("deleted");
+    task.appendChild(removeTask);
     // adding task to array when this function is triggered
     taskArray.push(task); 
     // empty input value when task has been added to the list
@@ -49,17 +49,20 @@ function removingTask(e, index) {
 function showTask() {
     // the first time it loads it shows a sign of good behaviour displaying an empty list message
     window.onload = () => {
-        taskCount.innerHTML = `${taskArray.length} tasks left to do.`;
+        taskCount.innerHTML = `${taskArray.length} task left to do.`;
     }
     // starts showing the numbers
-    if(taskArray.length > 0) {
+    if (taskArray.length == 1) {
+        taskCount.innerHTML = `${taskArray.length} task left to do.`;
+        
+    } else if (taskArray.length > 1) {
         taskCount.innerHTML = `${taskArray.length} tasks left to do.`;
     } else {
         // it starts showing its not-so-nice side
         const insults = [
             "Is it this all? Come on!",
             "Stop slacking!",
-            "You think you've done everything for today, but in reality you are not even close",
+            "You think you've done everything for today, but in reality you are not even close.",
             "Nice job! Isn't it time to add something else to your list?!",
             "Oh, so you think you deserve an award now?!",
             "Don't think it's over...",
