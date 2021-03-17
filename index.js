@@ -13,7 +13,6 @@ addTask.addEventListener("click", addingTask);
 list.addEventListener("click", removingTask);
 reset.addEventListener("click", resetInput);
 
-
 showTask();
 
 function addingTask() {
@@ -83,7 +82,6 @@ function showTask() {
         const randomRes = insults[Math.floor(insults.length * Math.random())];
         taskCount.innerHTML = randomRes;
     }
-    
 }
 // making the input value blank
 function resetInput() {
