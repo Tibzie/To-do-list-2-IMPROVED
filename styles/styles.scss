@@ -85,7 +85,7 @@ body {
     #list {
         list-style-type: none;
         width: 100%;
-        height: 45vh;
+        height: 40vh;
         overflow-y: scroll;
         overflow-x: hidden;  // this is necessary otherwise because the horizontal scrollbar keeps appearing when new li is added to the list
         &::-webkit-scrollbar-track {
