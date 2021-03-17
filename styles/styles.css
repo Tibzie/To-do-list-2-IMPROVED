@@ -1,4 +1,55 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap");
+@-webkit-keyframes slide {
+  0% {
+    opacity: 0;
+    left: -15%;
+  }
+  75% {
+    opacity: 0.2;
+    left: 5%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+@keyframes slide {
+  0% {
+    opacity: 0;
+    left: -15%;
+  }
+  75% {
+    opacity: 0.2;
+    left: 5%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+@-webkit-keyframes slide-out {
+  0% {
+    opacity: 1;
+    left: 0;
+  }
+  100% {
+    left: 25%;
+    opacity: 0;
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    opacity: 1;
+    left: 0;
+  }
+  100% {
+    left: 25%;
+    opacity: 0;
+  }
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -24,26 +75,14 @@ body {
   color: #e3e3e3;
 }
 
-#list-cover {
-  background: url("../f.jpg");
-  background-position: calc(100% + 600px) calc(100% + 380px);
-  position: relative;
-  width: 400px;
-  height: 80vh;
-  border-radius: 10px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
 #to-do-list {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   width: 400px;
   height: 80vh;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  background: url("../mountain.jpg");
+  background-position: calc(100% + 300px) calc(100% + 600px);
+  position: relative;
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.3);
   padding: 20px;
@@ -89,10 +128,6 @@ body {
   transition: 200ms ease-in-out;
 }
 
-#to-do-list button:hover {
-  color: rgba(0, 0, 0, 0.6);
-}
-
 #to-do-list #add {
   top: 105px;
   right: 28px;
@@ -100,6 +135,10 @@ body {
 
 #to-do-list #add:focus {
   outline: none;
+}
+
+#to-do-list #add:hover {
+  color: #46934c;
 }
 
 #to-do-list #reset {
@@ -111,13 +150,49 @@ body {
   outline: none;
 }
 
+#to-do-list #reset:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+
 #to-do-list #list {
   list-style-type: none;
   width: 100%;
+  height: 45vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#to-do-list #list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+#to-do-list #list::-webkit-scrollbar {
+  width: 10px;
+}
+
+#to-do-list #list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+#to-do-list #list::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(246, 190, 118, 0.75);
+  -webkit-backdrop-filter: blur(50px);
+          backdrop-filter: blur(50px);
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
 }
 
 #to-do-list #list li {
-  padding: 10px 15px;
+  width: 95%;
+  padding: 10px 35px 10px 15px;
   background: rgba(255, 255, 255, 0.1);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
@@ -126,9 +201,7 @@ body {
   margin-bottom: 10px;
   font-weight: 0.2rem;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  word-break: break-all;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -163,6 +236,10 @@ body {
   content: "\f2ed";
 }
 
+#to-do-list #list li .cross:focus {
+  outline: none;
+}
+
 #to-do-list #list li .cross:hover {
   color: #F67E76;
 }
@@ -187,57 +264,5 @@ body {
   border-top: 1px solid rgba(227, 227, 227, 0.6);
   width: 30%;
   margin: 15px auto 20px;
-}
-
-@-webkit-keyframes slide {
-  0% {
-    opacity: 0;
-    left: -15%;
-  }
-  75% {
-    opacity: 0.2;
-    left: 5%;
-  }
-  100% {
-    opacity: 1;
-    left: 0;
-  }
-}
-
-@keyframes slide {
-  0% {
-    opacity: 0;
-    left: -15%;
-  }
-  75% {
-    opacity: 0.2;
-    left: 5%;
-  }
-  100% {
-    opacity: 1;
-    left: 0;
-  }
-}
-
-@-webkit-keyframes slide-out {
-  0% {
-    opacity: 1;
-    left: 0;
-  }
-  100% {
-    left: 25%;
-    opacity: 0;
-  }
-}
-
-@keyframes slide-out {
-  0% {
-    opacity: 1;
-    left: 0;
-  }
-  100% {
-    left: 25%;
-    opacity: 0;
-  }
 }
 /*# sourceMappingURL=styles.css.map */

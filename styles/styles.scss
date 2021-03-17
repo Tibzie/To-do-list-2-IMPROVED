@@ -1,57 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap');
-$orange: #F6BE76;
-$yellow: #EEF676;
-$red: #F67E76;
-$white: #e3e3e3;
 
-// $yellow: #e3ff00;
-// $orange: #ff9a00;
-// $purple: #bd00ff;
+@import './variables', './keyframes';
 
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
-
 body {
     height: 100vh;
     width: 100%;
     background-image: linear-gradient(to right, $yellow, $orange, $red);
-    // background: url("../mountain.jpg");
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 600;
-    // color: #2b2b2b;
     color: $white;   
-}
-#list-cover {
-    background: url("../f.jpg");
-    // background-position: center;
-    background-position: calc(100% + 600px) calc(100% + 380px);
-    position: relative;
-    width: 400px;
-    height: 80vh;
-    border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 #to-do-list {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     width: 400px;
     height: 80vh;
-    // background-color: rgba(255, 255, 255, 0.2);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    // backdrop-filter: blur(1px);
+    background: url("../mountain.jpg");
+    background-position: calc(100% + 300px) calc(100% + 600px);
+    position: relative;
     border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    // font-size: .95rem;
+    border: 2px solid rgba(255, 255, 255, .3);
     padding: 20px;
-
     h1 {
         font-weight: 600;
         margin-bottom: 40px;
@@ -60,20 +36,19 @@ body {
         text-align: center;
         color: #2f2f2f;
     }
-
     input {
         padding: 15px 35px 15px 15px;
         position: relative;
         width: 100%;
         top: 0;
         left: 0;
-        border: 2px solid rgba(255, 255, 255, 0.3);
+        border: 2px solid rgba(255, 255, 255, .3);
         border-radius: 10px;
         margin-bottom: 20px;
         font-size: 1rem;
         font-family: 'Montserrat', sans-serif;
         font-weight: 300;
-        background: rgba(255, 255, 255, 0.75);
+        background: rgba(255, 255, 255, .75);
         backdrop-filter: blur(5px);
         &:focus {
             outline: none;
@@ -86,15 +61,15 @@ body {
         font-size: 1rem;
         cursor: pointer;
         transition: 200ms ease-in-out;
-        &:hover {
-            color:rgba(0, 0, 0s, .6);
-        }
     }
     #add {
         top: 105px;
         right: 28px;
         &:focus {
             outline: none;
+        }
+        &:hover {
+            color: $green;
         }
     }
     #reset {
@@ -103,24 +78,48 @@ body {
         &:focus {
             outline: none;
         }
+        &:hover {
+            color:rgba(0, 0, 0s, .6)
+        }
     }
-
     #list {
         list-style-type: none;
         width: 100%;
-        li {
-            // width: 100%;
-            padding: 10px 15px;
-            background: rgba(255, 255, 255, 0.1);
+        height: 45vh;
+        overflow-y: scroll;
+        overflow-x: hidden;  // this is necessary otherwise because the horizontal scrollbar keeps appearing when new li is added to the list
+        &::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, .1);
             backdrop-filter: blur(5px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 255, 255, .3);
+            border-radius: 10px;
+        }
+        &::-webkit-scrollbar {
+            width: 10px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, .1);
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, .3);
+            border-radius: 10px;
+            &:hover {
+                background-color: rgba(246,190,118, .75);
+                backdrop-filter: blur(50px);
+                border: 5px solid rgba(255, 255, 255, .3);
+                border-radius: 10px;
+            }
+        }
+        li {
+            width: 95%;
+            padding: 10px 35px 10px 15px;
+            background: rgba(255, 255, 255, .1);
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, .3);
             border-radius: 10px;
             margin-bottom: 10px;
             font-weight: 0.2rem;
-            // overflow-x: auto;
-            // overflow: hidden;
             position: relative;
-            display: flex;
+            word-break: break-all; // fixes issue when person types a super long word. (no space)
             align-items: center;
             font-weight: 500;
             font-size: .9rem;
@@ -145,6 +144,9 @@ body {
                     font-weight: 900;
                     content: "\f2ed";
                 }
+                &:focus {
+                    outline: none;
+                }
                 &:hover {
                     color: $red;
                 }
@@ -167,30 +169,5 @@ body {
             width: 30%;
             margin: 15px auto 20px;
         }
-    }
-}
-
-@keyframes slide {
-    0% {
-        opacity: 0;
-        left: -15%;
-    }
-    75% {
-        opacity: 0.2;
-        left: 5%;
-    }
-    100% {
-        opacity: 1;
-        left: 0;
-    }
-}
-@keyframes slide-out {
-    0% {
-        opacity: 1;
-        left: 0;
-    }
-    100% {
-        left: 25%;
-        opacity: 0;
     }
 }
