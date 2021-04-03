@@ -50,10 +50,13 @@ body {
         font-weight: 300;
         background: rgba(255, 255, 255, .75);
         backdrop-filter: blur(5px);
-        &:focus {
+        &:focus, &:hover {
             outline: none;
+            border: 2px solid rgba(255, 156, 56, .4);
+            border-radius: 10px;
         }
     }
+
     button {
         position: absolute;
         background: transparent;
@@ -65,20 +68,16 @@ body {
     #add {
         top: 105px;
         right: 28px;
-        &:focus {
+        &:focus, &:hover {
             outline: none;
-        }
-        &:hover {
             color: $green;
         }
     }
     #reset {
         top: 126px;
         right: 28px;
-        &:focus {
+        &:focus, &:hover {
             outline: none;
-        }
-        &:hover {
             color:rgba(0, 0, 0s, .6)
         }
     }
@@ -144,10 +143,8 @@ body {
                     font-weight: 900;
                     content: "\f2ed";
                 }
-                &:focus {
+                &:focus, &:hover {
                     outline: none;
-                }
-                &:hover {
                     color: $red;
                 }
             }

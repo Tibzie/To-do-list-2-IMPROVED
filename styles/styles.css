@@ -114,8 +114,10 @@ body {
           backdrop-filter: blur(5px);
 }
 
-#to-do-list input:focus {
+#to-do-list input:focus, #to-do-list input:hover {
   outline: none;
+  border: 2px solid rgba(255, 156, 56, 0.4);
+  border-radius: 10px;
 }
 
 #to-do-list button {
@@ -133,11 +135,8 @@ body {
   right: 28px;
 }
 
-#to-do-list #add:focus {
+#to-do-list #add:focus, #to-do-list #add:hover {
   outline: none;
-}
-
-#to-do-list #add:hover {
   color: #46934c;
 }
 
@@ -146,11 +145,8 @@ body {
   right: 28px;
 }
 
-#to-do-list #reset:focus {
+#to-do-list #reset:focus, #to-do-list #reset:hover {
   outline: none;
-}
-
-#to-do-list #reset:hover {
   color: rgba(0, 0, 0, 0.6);
 }
 
@@ -236,11 +232,8 @@ body {
   content: "\f2ed";
 }
 
-#to-do-list #list li .cross:focus {
+#to-do-list #list li .cross:focus, #to-do-list #list li .cross:hover {
   outline: none;
-}
-
-#to-do-list #list li .cross:hover {
   color: #F67E76;
 }
 
